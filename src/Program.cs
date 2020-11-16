@@ -31,6 +31,7 @@ namespace ExpanderConsoleApp
 
                 Console.WriteLine($"Port A = {dataPortAswitch20:D3} - Port B = {dataPortBswitch20:D3}");
 
+                // echo the x20 switches on x24 LEDs 
                 mcp23017x24.WriteByte(Register.GPIO, dataPortAswitch20, Port.PortA);
                 mcp23017x24.WriteByte(Register.GPIO, dataPortBswitch20, Port.PortB);
                    
