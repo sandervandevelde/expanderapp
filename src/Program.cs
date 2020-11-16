@@ -20,8 +20,8 @@ namespace ExpanderConsoleApp
             var connectionSettingsx24 = new I2cConnectionSettings(1, 0x24);
             var i2cDevicex24 = I2cDevice.Create(connectionSettingsx24);
             var mcp23017x24 = new Mcp23017(i2cDevicex24);
-            mcp23017x24.WriteByte(Register.IODIR, 0b0000_0000, Port.PortA);
-            mcp23017x24.WriteByte(Register.IODIR, 0b0000_0000, Port.PortB);
+            mcp23017x24.WriteByte(Register.IODIR, 0b1111_1111, Port.PortA);
+            mcp23017x24.WriteByte(Register.IODIR, 0b1111_1111, Port.PortB);
 
 
             while (true)
