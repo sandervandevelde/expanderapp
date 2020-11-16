@@ -18,9 +18,6 @@ namespace ExpanderConsoleApp
             mcp23017x20.WriteByte(Register.IODIR, 0b0000_0000, Port.PortA);
             mcp23017x20.WriteByte(Register.IODIR, 0b0000_0000, Port.PortB);
 
-            var connectionSettingsx24 = new I2cConnectionSettings(1, 0x24);
-            var i2cDevicex24 = I2cDevice.Create(connectionSettingsx24);
-            var mcp23017x24 = new Mcp23017(i2cDevicex24);
 
             while (true)
             {
@@ -29,7 +26,7 @@ namespace ExpanderConsoleApp
 
                 Console.WriteLine($"Port A = {dataPortAswitch20:D3} - Port B = {dataPortBswitch20:D3}");
 
-                Task.Delay(200).Wait();
+                Task.Delay(5000).Wait();
             }
         }
     }
