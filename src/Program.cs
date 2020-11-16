@@ -15,18 +15,21 @@ namespace ExpanderConsoleApp
             var i2cDevicex20 = I2cDevice.Create(connectionSettingsx20);
             var mcp23017x20 = new Mcp23017(i2cDevicex20);
 
+            mcp23017x20.WriteByte(Register.IODIR, 0b0000_0000, Port.PortA);
+            mcp23017x20.WriteByte(Register.IODIR, 0b0000_0000, Port.PortB);
+
             var connectionSettingsx24 = new I2cConnectionSettings(1, 0x24);
             var i2cDevicex24 = I2cDevice.Create(connectionSettingsx24);
             var mcp23017x24 = new Mcp23017(i2cDevicex24);
 
             while (true)
             {
-                byte dataPortAswitch = mcp23017x20.ReadByte(Register.GPIO, Port.PortA);
-                byte dataPortBswitch = mcp23017x20.ReadByte(Register.GPIO, Port.PortB);
+                byte dataPortAswitch20 = mcp23017x20.ReadByte(Register.GPIO, Port.PortA);
+                byte dataPortBswitch20 = mcp23017x20.ReadByte(Register.GPIO, Port.PortB);
 
-                Console.WriteLine($"Port A = {dataPortAswitch:D3} - Port B = {dataPortBswitch:D3}");
+                Console.WriteLine($"Port A = {dataPortAswitch20:D3} - Port B = {dataPortBswitch20:D3}");
 
-                Task.Delay(200);
+                Task.Delay(200).Wait();
             }
         }
     }
