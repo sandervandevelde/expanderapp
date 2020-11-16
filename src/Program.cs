@@ -31,8 +31,8 @@ namespace ExpanderConsoleApp
 
                 Console.WriteLine($"Port A = {dataPortAswitch20:D3} - Port B = {dataPortBswitch20:D3}");
 
-                mcp23017x24.WriteByte(Register.GPIO, 128, Port.PortA);
-                mcp23017x24.WriteByte(Register.GPIO, 1, Port.PortB);
+                mcp23017x24.WriteByte(Register.GPIO, dataPortAswitch20, Port.PortA);
+                mcp23017x24.WriteByte(Register.GPIO, dataPortBswitch20, Port.PortB);
                    
                 Task.Delay(5000).Wait();
             }
